@@ -74,6 +74,50 @@ public class Colosseum {
      */
     public static Pokemon buildPokemon() {
         Pokemon tempPokemon = new Pokemon();
+        Scanner in = new Scanner(System.in);
+        int hitpoint = 0;
+        int attacklevel = 0;
+        int defenselevel = 0;
+        String name = "";
+        boolean flag = false;
+        boolean va = false;
+        boolean valida = false;
+        System.out.println("Please name your Pokemon: ");
+        name = in.next();
+        System.out.println("How many hit points will it have? (1-50): ");
+        do {
+            int hit = in.nextInt();
+            if (50 >= hit && hit >= 1) {
+                hitpoint = hit;
+                flag = true;
+            } else {
+                flag = false;
+                System.out.println("Sorry. Hit points must be between 1 and 50: ");
+                in.nextLine();
+            }
+        } while (!flag);
+
+        System.out.println("Enter your attack level (1-49): ");
+        do {
+        int attack = in.nextInt();
+        if (49 >= attack && attack >= 1) {
+            va = true;
+            attacklevel = attack;
+
+        } else {
+            va = false;
+            System.out.println("Sorry. The attack level must be between 1 and 49: ");
+            in.nextLine();
+        }
+        } while (!va);
+        System.out.println("Enter your defense level (1-" + "" + (hitpoint - attacklevel) + "): ");
+        do {
+        int defense = in.nextInt();
+        if (defense <= (hitpoint - attacklevel) && defense >= 1) {
+            defenselevel = defense;
+            valida = true;
+        }
+        in.close();
         return tempPokemon;
     }
 
@@ -91,6 +135,7 @@ public class Colosseum {
      * Implement this function.
      */
     public static void printWhoIsAhead() {
+        if
         System.out.println("Implement me!");
     }
 
